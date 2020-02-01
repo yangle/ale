@@ -147,6 +147,11 @@ function! ale#c#ParseCFlagsFromMakeOutput(buffer, make_output) abort
         endif
     endfor
 
+    " Use the first line in the make output as a fallback.
+    if l:cflag_line == '' && len(a:make_output) > 0
+        let l:cflag_line = a:make_output[0]
+    endif
+
     let l:makefile_path = ale#path#FindNearestFile(a:buffer, 'Makefile')
     let l:makefile_dir = fnamemodify(l:makefile_path, ':p:h')
 
