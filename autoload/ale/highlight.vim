@@ -111,7 +111,7 @@ function! s:matchaddpos(group, pos_list) abort
             \)
         endfor
     else
-        call matchaddpos(a:group, a:pos_list)
+        call matchaddpos(a:group, a:pos_list, -1)
     endif
 endfunction
 
